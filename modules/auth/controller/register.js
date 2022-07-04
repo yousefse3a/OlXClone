@@ -27,7 +27,7 @@ const refreshToken = async (req, res) => {
         if (user) {
             const token = jwt.sign({ _id: id }, process.env.tokenSignature, { expiresIn: 5 * 60 });
             const confirmURL = `${req.protocol}://${req.headers.host}/confirmEmail/${token}`
-            const refreshURL = `${req.protocol}://${req.headers.host}/refreshToken/${id}`
+            const refreshURL = `https://olxclonev0.herokuapp.com/refreshToken/${id}`
             const mesaage = `
         <div>
         <a href='${confirmURL}'>confirm</a> <hr/>
@@ -62,8 +62,8 @@ const register = async (req, res) => {
 }
  async function sendConfirmation(user,req){
     const token = jwt.sign({ _id: user._id }, process.env.tokenSignature, { expiresIn: 5 * 60 });
-    const confirmURL = `${req.protocol}://${req.headers.host}/confirmEmail/${token}`
-    const refreshURL = `${req.protocol}://${req.headers.host}/refreshToken/${user._id}`
+    const confirmURL = `https://olxclonev0.herokuapp.com/confirmEmail/${token}`
+    const refreshURL = `https://olxclonev0.herokuapp.com//refreshToken/${user._id}`
     const mesaage = `
     <div>
     <a href='${confirmURL}'>confirm</a><hr/>
