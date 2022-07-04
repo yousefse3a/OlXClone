@@ -22,7 +22,7 @@ const job = schedule.scheduleJob('59 59 23 * * *', async function () {
 });
 
 
-const server = app.listen(process.env.PORT, () => {
+const server = app.listen(+process.env.PORT || 4000, () => {
     console.log(`running on port ${process.env.PORT}`)
 });
 
