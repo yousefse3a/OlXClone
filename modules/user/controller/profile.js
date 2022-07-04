@@ -1,5 +1,5 @@
 const { StatusCodes } = require('http-status-codes');
-const { userModel } = require("../../../models/userModel");
+const { userModel } = require("../../../models/UserModel");
 const sendEmail = require('../../../services/sendEmail');
 const bycrpt = require('bcrypt');
 const { sendConfirmation } = require('../../auth/controller/register');
