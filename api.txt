@@ -1,0 +1,210 @@
+ecommerce api:
+
+1-register
+method : post
+URL    : https://olxclonev0.herokuapp.com/register
+body   : {
+   	 "email","password","cPassword","lastName""fristName"
+}
+headers:--
+
+1-login
+method : post
+URL    : https://olxclonev0.herokuapp.com/login
+body   : {
+           "email","password"
+        }
+headers:--
+-----------------------------------------------------------------------------------------------------------------------------
+user 
+
+1-updatePass
+method : put
+URL    : https://olxclonev0.herokuapp.com/user/updatedPass
+body   : {
+           "oldPass","newPass"
+         } 
+headers:{
+        authorization: `Bearer {userToken}`,
+      }
+
+2-updatedEmail
+method : post
+URL    : https://olxclonev0.herokuapp.com/user/updateForgetPassword
+body   :  "email","password"
+headers:{
+        authorization: `Bearer {userToken}`,
+      }
+
+3-updateForgetPassword
+method : post
+URL    : https://olxclonev0.herokuapp.com/user/updateForgetPassword
+body   : "email","newPass","code"
+
+headers:{
+        --
+      }
+
+
+4-setSendCode
+method : post
+URL    : https://olxclonev0.herokuapp.com/user/forgetPassword
+body   : "email"
+headers:{
+        --
+      }
+
+
+5-delete user
+method : DELETE
+URL    : https://olxclonev0.herokuapp.com/user/:id
+body   : --
+headers:{
+        authorization: `Bearer {adminToken || userToken}`,
+      }
+
+6-add ProfilePic
+method : post
+URL    : https://olxclonev0.herokuapp.com/user/ProfilePic
+body   : img
+headers:{
+        authorization: `Bearer {userToken}`,
+      }
+
+7-add coverPic
+method : post
+URL    : https://olxclonev0.herokuapp.com/user/coverPic
+body   : img
+headers:{
+        authorization: `Bearer { userToken}`,
+      }
+
+8-get all users
+method : get
+URL    : https://olxclonev0.herokuapp.com/users?page=0&size=1
+body   : --
+headers:{
+        authorization: `Bearer {adminToken }`,
+      }
+-------------------------------------------------------------------------------------------------------------------------------------------
+products
+
+1-add product
+method : post
+URL    : https://olxclonev0.herokuapp.com/product
+body   : {
+            "title,desc,price,img"    
+         }
+headers:{
+        authorization: `Bearer {userToken}`,
+      }
+
+
+2-update product
+method : put
+URL    : https://olxclonev0.herokuapp.com/product/:id
+body   : {
+            "title,desc,price,img"  
+        }
+headers:{
+        authorization: `Bearer {adminToken}`,
+      }
+
+3-delete
+method : delete
+URL    :https://olxclonev0.herokuapp.com/product/:id
+body   :--
+headers:{
+        authorization: `Bearer {adminToken || userToken}`,
+      }
+
+
+4-soft delete
+method : put
+URL    :https://olxclonev0.herokuapp.com/product/:id
+body   :--
+headers:{
+        authorization: `Bearer {adminToken || userToken}`,
+      }
+
+5-product hide
+method : put
+URL    : https://olxclonev0.herokuapp.com/product/hide/:id
+body   : --
+headers: {
+        authorization: `Bearer {adminToken || userToken}`,
+      }
+
+6-like unlike
+method : put
+URL    : https://olxclonev0.herokuapp.com/product/like/:id
+body   : --
+headers: {
+        authorization: `Bearer {adminToken || userToken}`,
+      }
+
+6-like unlike
+method : put
+URL    : https://olxclonev0.herokuapp.com/product/like/:id
+body   : --
+headers: {
+        authorization: `Bearer {adminToken || userToken}`,
+      }
+
+7-add to wishList
+method : put
+URL    : https://olxclonev0.herokuapp.com/product/Whish/:id
+body   : --
+headers: {
+        authorization: `Bearer {adminToken || userToken}`,
+      }
+
+
+6-get product
+method : get
+URL    : https://olxclonev0.herokuapp.com/product/:id
+body   : --
+headers: {
+        authorization: `Bearer {adminToken || userToken}`,
+      }
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+comments 
+
+1-add comment
+method : post
+URL    : https://olxclonev0.herokuapp.com/comment/:productId
+body   : {
+            "text"    
+         }
+headers:{
+        authorization: `Bearer {userToken}`,
+      }
+
+
+2-add reply
+method : post
+URL    : https://olxclonev0.herokuapp.com/comment/reply/:commentId
+body   : {
+            "text"  
+        }
+headers:{
+        authorization: `Bearer {adminToken}`,
+      }
+
+3-like un like
+method : put
+URL    :https://olxclonev0.herokuapp.com/comment/like/:commentId
+body   :--
+headers:{
+        authorization: `Bearer {adminToken || userToken}`,
+      }
+
+
+4-soft delete
+method : delete
+URL    :https://olxclonev0.herokuapp.com/comment/:commentId
+body   :--
+headers:{
+        authorization: `Bearer {adminToken || userToken}`,
+      }
